@@ -41,8 +41,8 @@ function cargaLibros(
         screen.innerHTML += `
             <article class="card" id="${element.id}">
                 <div class="btn-bar">
-                    <icon class="fav ${element.favorito ? "fav-no-active" : "fav-active"}"></icon>
-                    <icon class="disp ${element.disponible ? "disp-no-active" : "disp-active"}"></icon>
+                    <icon class="fav ${element.favorito ? "fav-active" : "fav-no-active"}"></icon>
+                    <icon class="disp ${element.disponible ? "disp-active" : "disp-no-active"}"></icon>
                 </div>
                 <div>
                     <h2>${element.titulo}</h2>
@@ -55,12 +55,27 @@ function cargaLibros(
     });
 }
 
-function estadoDisp(id) {
-    libros.forEach(e => {
-        if (e.id != id) return
+function estadoDisp(id, card) {
+    const c = libros.find(ele => ele.id == id);
+    const disp = card.querySelector(".disp");
+    if (!c) return;
+    c.disponible = !c.disponible
 
-        e.disponible = !e.disponible;
-    })
+    disp.classList.toggle("disp-no-active");
+    disp.classList.toggle("disp-active");
+}
+function estadoFav(id, card) {
+    const c = libros.find(ele => ele.id == id);
+    const fav = card.querySelector(".fav");
+    if (!c) return;
+    c.favorito = !c.favorito
+
+    fav.classList.toggle("fav-no-active");
+    fav.classList.toggle("fav-active");
+}
+function actualizarCard(card) {
+    console.log(card);
+
 }
 
 cargaLibros();
@@ -88,13 +103,19 @@ btnCarga.addEventListener("click", (event) => {
     cargaLibros(titulo, autor, genero, año, disp, fav)
 })
 
-btnGenero.addEventListener("change", (e) => { 
+btnGenero.addEventListener("change", (e) => {
     cargaLibros("", "", e.target.value)
 })
 
 screen.addEventListener("click", (e) => {
     const fav = e.target.closest(".fav");
     const disp = e.target.closest(".disp");
-    const card = e.target.closest(".card").getAttribute("id");
+    const card = e.target.closest(".card");
+    const id = card.getAttribute("id");
     if (!fav && !disp) return;
+
+
+    if (disp) estadoDisp(id, card)
+    if (fav) estadoFav(id, card)
+
 })

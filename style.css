@@ -123,7 +123,6 @@ aside ul li{
 }
 .fav-active {
     mask-image: url(icons/heart.png);
-    background-color: red;
 }
 .disp-active {
     mask-image: url(icons/bookmark.png);
