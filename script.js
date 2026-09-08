@@ -42,7 +42,7 @@ function cargaLibros(
             <article class="card" id="${element.id}">
                 <div class="btn-bar">
                     <icon class="fav ${element.favorito ? "fav-active" : "fav-no-active"}"></icon>
-                    <icon class="disp ${element.disponible ? "disp-active" : "disp-no-active"}"></icon>
+                    <icon class="disp ${element.disponible ? "disp-no-active" : "disp-active"}"></icon>
                 </div>
                 <div>
                     <h2>${element.titulo}</h2>
@@ -73,10 +73,7 @@ function estadoFav(id, card) {
     fav.classList.toggle("fav-no-active");
     fav.classList.toggle("fav-active");
 }
-function actualizarCard(card) {
-    console.log(card);
 
-}
 
 cargaLibros();
 const btnCard = document.querySelectorAll("#btn-card");
@@ -92,13 +89,6 @@ btnCarga.addEventListener("click", (event) => {
     let fav = document.querySelector("#fav").checked;
     if (disp != true) disp = null
     if (fav != true) fav = null
-
-    console.log({ titulo });
-    console.log({ autor });
-    console.log({ genero });
-    console.log({ año });
-    console.log({ disp });
-    console.log({ fav });
 
     cargaLibros(titulo, autor, genero, año, disp, fav)
 })
@@ -117,5 +107,4 @@ screen.addEventListener("click", (e) => {
 
     if (disp) estadoDisp(id, card)
     if (fav) estadoFav(id, card)
-
 })
