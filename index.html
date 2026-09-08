@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <h1>BIBLIO<span>TECH</span></h1>
+    </header>
+    <main>
+        <aside id="sidebar">
+          <form>
+            <ul>
+                <li>
+                    <label for="Titulo">Titulo: </label>
+                    <input type="text" id="titulo">
+                </li>
+                <li>
+                    <label for="Autor">Autor: </label>
+                    <input type="text" name="autor" id="autor">
+                </li>
+                <li>
+                  <label for="genero">Genero</label>
+                    <select id="genero">
+                      <option value="">Todos</option>
+                      <option value="Ciencia ficcion">Ciencia ficción</option>
+                      <option value="Epica">Epica</option>                      
+                      <option value="Fabula">Fabula</option>
+                      <option value="Fantasia">Fantasia</option>
+                      <option value="Novela">Novela</option>
+                      <option value="Realismo magico">Realismo magico</option>
+                      <option value="Romance">Romance</option>
+                      <option value="Terror">Terror</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="Año">Lanzamiento: </label>
+                    <input type="text" name="año" id="año">
+                </li>
+                <li>
+                    <label for="disponible">Disponibilidad: </label>
+                    <input type="checkbox" name="disp" id="disp">
+                </li>
+                <li>
+                    <label for="fav">Favoritos: </label>
+                    <input type="checkbox" name="fav" id="fav">
+                </li>
+                <li><button id="boton-carga">buscar</button></li>
+            </ul>
+            </form>
+        </aside>
+
+        <section id="book_screen">
+            
+        </section>
+    </main>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

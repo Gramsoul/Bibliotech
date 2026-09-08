@@ -1,0 +1,131 @@
+* {
+    --colorbg: #F5F1E8;
+    --color1: #E6E0D4;
+    --color2: #6B705C;
+    --color3: #344E41;
+    --color4: #D4A373;
+    --text: #283618;
+    --color122: #5f8170;
+    --headerh : 100px;
+    --alt : 500px;
+    margin: 0;
+}
+body{
+    display: grid; 
+    place-items: center;
+    background-color: var(--colorbg);
+    color: var(--text);
+    gap: 1rem;
+}
+
+header {
+    display: grid;
+    place-items: center;
+    background-color: var(--color3);
+    color: #82b199;
+    width: 100vw;
+    height: var(--headerh);
+    span {
+        color:var(--color4);
+    }
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--color2);
+    border-radius: 10px;
+}
+
+button {
+    background: var(--color2);
+    color: white;
+    border-radius: 5px;
+}
+.card{
+    display: grid;
+    place-items: grid-start;
+    background: var(--color2);
+    border: 2px solid var(--color1);
+    box-sizing: border-box;
+    width: 250px;
+    height: 160px;
+    border-radius: 8px;
+    padding: 8px;
+    overflow-y: scroll;
+}
+.card p {
+    color: var(--colorbg);
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    height: calc(100vh - var(--headerh) - 1rem);
+    place-items: center;
+    gap: .1em;
+}
+#book_screen{
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: var(--color3);
+    box-sizing: border-box;
+    gap: 10px;
+    width: 900px;
+    height: var(--alt);
+    overflow-y: scroll;
+    padding: 10px 0;
+}
+aside {
+    box-sizing: border-box;
+    padding: 20PX;
+    background-color: var(--color3);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    width: fit-content;
+    height: var(--alt);
+    color: var(--color1);
+}
+aside ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+aside ul li{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.btn-bar{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+}
+.fav, .disp {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    mask-position: center;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+}
+.fav-no-active {
+    mask-image: url(icons/heart_empty.png);   
+}
+.disp-no-active {
+    mask-image: url(icons/bookmark\ _empty.png);
+}
+.fav-active {
+    mask-image: url(icons/heart.png);
+    background-color: red;
+}
+.disp-active {
+    mask-image: url(icons/bookmark.png);
+    background-color: goldenrod;
+}
